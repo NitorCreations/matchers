@@ -45,9 +45,9 @@
     </organization>
 
     <scm>
-        <connection>scm:git:git@github.com:NitorCreations/testing-helpers.git</connection>
-        <url>git@github.com:NitorCreations/testing-helpers.git</url>
-        <developerConnection>scm:git:git@github.com:NitorCreations/testing-helpers.git</developerConnection>
+        <connection>scm:git:git@github.com:NitorCreations/matchers.git</connection>
+        <url>git@github.com:NitorCreations/matchers.git</url>
+        <developerConnection>scm:git:git@github.com:NitorCreations/matchers.git</developerConnection>
     </scm>
 
     <properties>
