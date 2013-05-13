@@ -8,7 +8,7 @@
     <name>Useful Hamcrest 1.3 matchers</name>
     <description>Useful Hamcrest 1.3 matchers</description>
     <packaging>jar</packaging>
-    <url>https://github.com/NitorCreations/testing-helpers</url>
+    <url>https://github.com/NitorCreations/matchers</url>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
