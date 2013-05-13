@@ -1,0 +1,10 @@
+<matchers>
+
+    <factory class="com.nitorcreations.matchers.CollectionMatchers"/>
+    <factory class="com.nitorcreations.matchers.HasItemAtIndex" />
+    <factory class="com.nitorcreations.matchers.IteratorMatcher" />
+    <factory class="com.nitorcreations.matchers.ReflectionEqualsMatcher" />
+    <factory class="com.nitorcreations.matchers.SerializableMatcher"/>
+    <factory class="com.nitorcreations.matchers.StringMatchers"/>
+
+</matchers>
