@@ -4,3 +4,31 @@
 *.jar
 *.war
 *.ear
+
+.DS_Store
+
+# Eclipse related ignores #
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+target/
+# External tool builders
+.externalToolBuilders/
+
+# Intellij related ignores
+.idea
+*.iml
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
