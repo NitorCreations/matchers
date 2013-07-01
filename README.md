@@ -23,6 +23,9 @@ The package contains the following matchers:
  - `containsElementsInAnyOrder(Collection<E>)` - matches that the target collection contains exactly the same items in any order
  - `hasItemsOf(Collection<T> items)` - matches that the target collection contains all of the items in the given collection. The collection may also contain other items.
  - `hasNoDuplicates(Class<T>)` - matches that the target collection contains no duplicates. The `class` parameter is to ensure generics work without unchecked casts.
+ -  emptyList() - matches empty lists
+* MapMatchers
+ -  emptyMap() - matches empty maps
 * HasItemAtIndex
  - `hasFirstItem(Matcher<T> item)`
  - `hasLastItem(Matcher<T> item)`
