@@ -9,6 +9,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
+import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.core.IsCollectionContaining;
 
@@ -72,6 +73,22 @@ public final class CollectionMatchers {
             @Override
             public boolean matchesSafely(S item) {
                 return new HashSet<T>(item).size() == item.size();
+            }
+        };
+    }
+
+    @Factory
+    public static <T extends List<?>> Matcher<T> emptyList() {
+        return new TypeSafeDiagnosingMatcher<T>() {
+            @Override
+            protected boolean matchesSafely(T item, Description mismatchDescription) {
+                mismatchDescription.appendText("was not empty: size: ").appendValue(item.size());
+                return item.isEmpty();
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("empty list");
             }
         };
     }

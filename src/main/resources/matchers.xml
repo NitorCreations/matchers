@@ -4,6 +4,7 @@
     <factory class="com.nitorcreations.matchers.CountThat"/>
     <factory class="com.nitorcreations.matchers.HasItemAtIndex" />
     <factory class="com.nitorcreations.matchers.IteratorMatcher" />
+    <factory class="com.nitorcreations.matchers.MapMatchers" />
     <factory class="com.nitorcreations.matchers.ReflectionEqualsMatcher" />
     <factory class="com.nitorcreations.matchers.SerializableMatcher"/>
     <factory class="com.nitorcreations.matchers.StringMatchers"/>

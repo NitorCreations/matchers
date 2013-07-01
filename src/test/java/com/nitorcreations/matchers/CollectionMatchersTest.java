@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import static com.nitorcreations.matchers.CollectionMatchers.containsElements;
 import static com.nitorcreations.matchers.CollectionMatchers.containsElementsInAnyOrder;
+import static com.nitorcreations.matchers.CollectionMatchers.emptyList;
 import static com.nitorcreations.matchers.CollectionMatchers.hasItemsOf;
 import static com.nitorcreations.matchers.CollectionMatchers.hasNoDuplicates;
 import static java.util.Arrays.asList;
@@ -87,6 +88,16 @@ public class CollectionMatchersTest {
     @Test
     public void hasNoDuplicatesDoesNotMatchListWithDuplicates() {
         assertThat(Arrays.asList(1, 2, 3, 4, 4), not(hasNoDuplicates(Integer.class)));
+    }
+
+    @Test
+    public void emptyListMatchesEmptyList() {
+        assertThat(new ArrayList<String>(), emptyList());
+    }
+
+    @Test
+    public void emptyListDoesNotMatcheNonEmpty() {
+        assertThat(Arrays.asList(1), not(emptyList()));
     }
 
 }
