@@ -4,18 +4,6 @@
 
 The static factory methods for each matcher are generated to `com.nitorcreations.Matchers` class.
 
-## Maven
-
-Available in Maven central repository. Add this to your `pom.xml`
-
-```xml
-<dependency>
-  <groupId>com.nitorcreations</groupId>
-  <artifactId>matchers</artifactId>
-  <version>1.0</version>
-</dependency>
-```
-
 ## Contents
 
 The package contains the following matchers:
@@ -25,9 +13,9 @@ The package contains the following matchers:
  - `containsElementsInAnyOrder(Collection<E>)` - matches that the target collection contains exactly the same items in any order
  - `hasItemsOf(Collection<T> items)` - matches that the target collection contains all of the items in the given collection. The collection may also contain other items.
  - `hasNoDuplicates(Class<T>)` - matches that the target collection contains no duplicates. The `class` parameter is to ensure generics work without unchecked casts.
- -  emptyList() - matches empty lists
+ - `emptyList()` - matches empty lists
 * MapMatchers
- -  emptyMap() - matches empty maps
+ -  `emptyMap()` - matches empty maps
 * HasItemAtIndex
  - `hasFirstItem(Matcher<T> item)`
  - `hasLastItem(Matcher<T> item)`
@@ -40,6 +28,21 @@ The package contains the following matchers:
  - `serializable()` - matches that the given object can be serialized and deserialized
 * StringMatchers
  - `containsIgnoreCase(String)`
+* FieldMatchers
+ - `hasField(String fieldName)` object has field with name `fieldName`
+ - `hasField(String fieldName, Matcher<?> valueMatcher)` object has a field with name `fieldName` and its value matches the `valueMatcher`
+
+## Maven
+
+Available in Maven central repository. Add this to your `pom.xml`
+
+```xml
+<dependency>
+  <groupId>com.nitorcreations</groupId>
+  <artifactId>matchers</artifactId>
+  <version>1.0</version>
+</dependency>
+```
 
 ## Creating new matchers
 
