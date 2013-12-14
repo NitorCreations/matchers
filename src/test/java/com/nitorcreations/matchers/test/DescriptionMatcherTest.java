@@ -22,6 +22,11 @@ public class DescriptionMatcherTest {
         assertThat(new MatcherWithDescription("not this"), not(hasDescription(is("description"))));
     }
 
+    @Test
+    public void hasCorrectDescription() {
+        assertThat(hasDescription(is("foo")).toString(), is("matcher whose description is \"foo\""));
+    }
+    
     private static class MatcherWithDescription extends BaseMatcher<Object> {
 
         private final String description;
