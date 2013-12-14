@@ -82,12 +82,12 @@ public class CollectionMatchersTest {
 
     @Test
     public void hasNoDuplicatesMatchesListWithNoDuplicates() {
-        assertThat(Arrays.asList(1, 2, 3, 4), hasNoDuplicates(Integer.class));
+        assertThat(Arrays.<Integer>asList(1, 2, 3, 4), hasNoDuplicates(Integer.class));
     }
 
     @Test
     public void hasNoDuplicatesDoesNotMatchListWithDuplicates() {
-        assertThat(Arrays.asList(1, 2, 3, 4, 4), not(hasNoDuplicates(Integer.class)));
+        assertThat(Arrays.<Integer>asList(1, 2, 3, 4, 4), not(hasNoDuplicates(Integer.class)));
     }
 
     @Test
