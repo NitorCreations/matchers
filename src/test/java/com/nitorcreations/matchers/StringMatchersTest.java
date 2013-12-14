@@ -4,8 +4,6 @@ import net.sf.qualitytest.CoverageForPrivateConstructor;
 
 import org.junit.Test;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
-
 import static com.nitorcreations.matchers.StringMatchers.containsIgnoreCase;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.not;
