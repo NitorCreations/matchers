@@ -1,5 +1,7 @@
 # Hamcrest 1.3 utility matchers
 
+[![Build Status](https://travis-ci.org/NitorCreations/matchers.png?branch=master)](https://travis-ci.org/NitorCreations/matchers) [![Coverage Status](https://coveralls.io/repos/NitorCreations/matchers/badge.png)](https://coveralls.io/r/NitorCreations/matchers)
+
 The static factory methods for each matcher are generated to `com.nitorcreations.Matchers` class.
 
 ## Maven
