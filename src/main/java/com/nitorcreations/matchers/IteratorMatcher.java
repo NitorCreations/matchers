@@ -40,7 +40,7 @@ public final class IteratorMatcher<T extends Iterator<?>> extends TypeSafeDiagno
 
     @Override
     public void describeTo(Description description) {
-        description.appendText("iterator that ").appendDescriptionOf(iterableMatcher);
+        description.appendText("iterator of ").appendDescriptionOf(iterableMatcher);
     }
 
     /**

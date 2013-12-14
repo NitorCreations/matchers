@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.sf.qualitytest.CoverageForPrivateConstructor;
+
 import org.junit.Test;
 
 import static com.nitorcreations.matchers.CollectionMatchers.containsElements;
@@ -12,6 +14,7 @@ import static com.nitorcreations.matchers.CollectionMatchers.emptyList;
 import static com.nitorcreations.matchers.CollectionMatchers.hasItemsOf;
 import static com.nitorcreations.matchers.CollectionMatchers.hasNoDuplicates;
 import static java.util.Arrays.asList;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -91,6 +94,11 @@ public class CollectionMatchersTest {
     }
 
     @Test
+    public void hasNoDuplicatesHasCorrectDescription() {
+        assertThat(hasNoDuplicates(Integer.class).toString(), is("without duplicates"));
+    }
+
+    @Test
     public void emptyListMatchesEmptyList() {
         assertThat(new ArrayList<String>(), emptyList());
     }
@@ -98,6 +106,16 @@ public class CollectionMatchersTest {
     @Test
     public void emptyListDoesNotMatcheNonEmpty() {
         assertThat(Arrays.asList(1), not(emptyList()));
+    }
+
+    @Test
+    public void emptyListHasCorrectDescription() {
+        assertThat(emptyList().toString(), is("empty list"));
+    }
+    
+    @Test
+    public void coverPrivateConstructor() {
+        CoverageForPrivateConstructor.giveMeCoverage(CollectionMatchers.class);
     }
 
 }

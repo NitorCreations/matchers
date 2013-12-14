@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import org.junit.Test;
 
+import static com.nitorcreations.matchers.SerializableMatcher.serializable;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 
@@ -13,7 +15,7 @@ public class SerializableMatcherTest {
     public void matchesSerializable() {
         TestSerializable ts = new TestSerializable();
         ts.setField("field");
-        assertThat(ts, SerializableMatcher.serializable());
+        assertThat(ts, serializable());
     }
 
     @Test
@@ -26,9 +28,14 @@ public class SerializableMatcherTest {
                 return "foobar";
             }
         };
-        assertThat(ts, not(SerializableMatcher.serializable()));
+        assertThat(ts, not(serializable()));
     }
 
+    @Test
+    public void hasCorrectDescription() {
+        assertThat(serializable().toString(), is("serializable"));
+    }
+    
     @SuppressWarnings("UnusedDeclaration")
     private static class TestSerializable implements Serializable {
         private static final long serialVersionUID = 7735266069597063313L;

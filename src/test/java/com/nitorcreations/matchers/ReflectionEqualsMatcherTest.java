@@ -2,6 +2,9 @@ package com.nitorcreations.matchers;
 
 import org.junit.Test;
 
+import static com.nitorcreations.matchers.ReflectionEqualsMatcher.reflectEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
@@ -15,19 +18,25 @@ public class ReflectionEqualsMatcherTest {
     @Test
     public void equalFieldsMatches() {
         assertThat(one, not(equalTo(one2)));
-        assertThat(one, ReflectionEqualsMatcher.reflectEquals(one2));
+        assertThat(one, reflectEquals(one2));
     }
 
     @Test
     public void nonEqualFieldsDoesNotMatch() {
-        assertThat(one, not(ReflectionEqualsMatcher.reflectEquals(two)));
+        assertThat(one, not(reflectEquals(two)));
     }
 
     @Test
     public void excludedNonEqualFieldsMatches() {
-        assertThat(one, ReflectionEqualsMatcher.reflectEquals(two, "num"));
+        assertThat(one, reflectEquals(two, "num"));
     }
 
+    @Test
+    public void hasCorrectDescription() {
+        assertThat(reflectEquals(one).toString(), startsWith("reflectively equal to:"));
+    }
+    
+    @SuppressWarnings("unused")
     private class TestObject {
         final String str;
         final int num;

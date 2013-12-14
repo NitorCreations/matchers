@@ -25,7 +25,6 @@ public class SerializableMatcher extends DiagnosingMatcher<Object> {
             } finally {
                 oos.close();
             }
-
         } catch (IOException e) {
             return false;
         }
