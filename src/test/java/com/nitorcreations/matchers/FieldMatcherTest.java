@@ -2,6 +2,7 @@ package com.nitorcreations.matchers;
 
 import static com.nitorcreations.matchers.FieldMatcher.hasField;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
@@ -9,7 +10,7 @@ import org.junit.Test;
 
 public class FieldMatcherTest {
 
-    MyClass myInstance = new MyClass();
+    TestHelper myInstance = new TestHelper();
 
     @Test
     public void findsField() {
@@ -17,8 +18,18 @@ public class FieldMatcherTest {
     }
 
     @Test
-    public void doesNotFindImaginaryFields() {
+    public void findsStaticField() {
+        assertThat(myInstance, hasField("myStaticField"));
+    }
+
+    @Test
+    public void doesNotFindImaginaryField() {
         assertThat(myInstance, not(hasField("noSuchField")));
+    }
+
+    @Test
+    public void findsPrivateField() {
+        assertThat(myInstance, hasField("myPrivateField"));
     }
 
     @Test
@@ -33,7 +44,16 @@ public class FieldMatcherTest {
         assertThat(myInstance, not(hasField("myField", equalTo("foo"))));
     }
 
-    public static class MyClass {
+    @Test
+    public void hasCorrectDescription() {
+        assertThat(hasField("myField").toString(), is("has field \"myField\""));
+        assertThat(hasField("myField", equalTo("foo")).toString(), is("has field \"myField\" with value \"foo\""));
+    }
+
+    @SuppressWarnings("unused")
+    private static class TestHelper {
         public String myField;
+        private String myPrivateField;
+        public static String myStaticField = "staticValue";
     }
 }

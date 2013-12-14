@@ -19,7 +19,7 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
     
     @Override
     public void describeTo(Description description) {
-        description.appendText("has field ").appendText(fieldName);
+        description.appendText("has field \"").appendText(fieldName).appendText("\"");
         if (valueMatcher != null) {
             description.appendText(" with value ").appendDescriptionOf(valueMatcher);
         }
