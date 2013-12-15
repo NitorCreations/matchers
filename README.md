@@ -1,8 +1,11 @@
-# Hamcrest 1.3 utility matchers
+# Hamcrest 1.3 Utility Matchers
 
 [![Build Status](https://travis-ci.org/NitorCreations/matchers.png?branch=master)](https://travis-ci.org/NitorCreations/matchers) [![Coverage Status](https://coveralls.io/repos/NitorCreations/matchers/badge.png)](https://coveralls.io/r/NitorCreations/matchers)
 
-The static factory methods for each matcher are generated to `com.nitorcreations.Matchers` class.
+
+## Usage
+
+The static factory methods for all matchers are generated to `com.nitorcreations.Matchers` class for easy access.
 
 ## Contents
 
@@ -40,11 +43,13 @@ Available in Maven central repository. Add this to your `pom.xml`
 <dependency>
   <groupId>com.nitorcreations</groupId>
   <artifactId>matchers</artifactId>
-  <version>1.0</version>
+  <version>1.2</version>
 </dependency>
 ```
 
-## Creating new matchers
+## Contributing
+
+New matchers are welcomed as pull requests, as long as they are properly unit tested.
 
 If you add new matcher classes, be sure to add `@Factory` annotations to the static factory methods, and remember to add the new class to the `matchers.xml` file. This will ensure that the factory methods will be accessible in the common `com.nitorcreations.Matchers` class.
 
