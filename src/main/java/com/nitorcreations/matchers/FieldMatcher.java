@@ -8,7 +8,6 @@ import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 
 public final class FieldMatcher extends DiagnosingMatcher<Object> {
-
     private final String fieldName;
     private final Matcher<?> valueMatcher;
 
@@ -16,7 +15,7 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
         this.fieldName = fieldName;
         this.valueMatcher = valueMatcher;
     }
-    
+
     @Override
     public void describeTo(Description description) {
         description.appendText("has field \"").appendText(fieldName).appendText("\"");
@@ -28,8 +27,10 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
     @Override
     protected boolean matches(Object item, Description mismatchDescription) {
         Field field = findField(item.getClass(), fieldName);
-        if (field == null) return false;
-        if (valueMatcher == null) return true;
+        if (field == null)
+            return false;
+        if (valueMatcher == null)
+            return true;
         try {
             return valueMatcher.matches(field.get(item));
         } catch (IllegalArgumentException e) {
@@ -53,14 +54,27 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
         return null;
     }
 
+    /**
+     * Creates a matcher that matches when the examined object has a field
+     * with the specified name.
+     * <p/>
+     * For example:
+     * <pre>assertThat(myBean, hasField("foo")</pre>
+     */
     @Factory
     public static FieldMatcher hasField(String fieldName) {
         return new FieldMatcher(fieldName, null);
     }
-    
+
+    /**
+     * Creates a matcher that matches when the examined object has a field
+     * with the specified name whose value satisfies the specified matcher.
+     * <p/>
+     * For example:
+     * <pre>assertThat(myBean, hasField("foo", equalTo("bar"))</pre>
+     */
     @Factory
     public static FieldMatcher hasField(String fieldName, Matcher<?> withValue) {
         return new FieldMatcher(fieldName, withValue);
     }
-    
 }
