@@ -29,6 +29,17 @@
 				<role>developer</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>vertti</id>
+			<name>Janne Sinivirta</name>
+			<email>janne.sinivirta@nitorcreations.com</email>
+			<organization>Nitor Creations</organization>
+			<organizationUrl>http://www.nitorcreations.com/</organizationUrl>
+			<timezone>+2</timezone>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
 	</developers>
 
 	<licenses>
