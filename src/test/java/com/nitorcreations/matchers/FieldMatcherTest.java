@@ -28,6 +28,12 @@ public class FieldMatcherTest {
     }
 
     @Test
+    public void doesNotExplodeOnNull() {
+        assertThat(myInstance, not(hasField(null)));
+    }
+
+    
+    @Test
     public void findsPrivateField() {
         assertThat(myInstance, hasField("myPrivateField"));
     }

@@ -2,6 +2,7 @@ package com.nitorcreations.matchers;
 
 import java.lang.reflect.Field;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Description;
 import org.hamcrest.DiagnosingMatcher;
 import org.hamcrest.Factory;
@@ -33,8 +34,6 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
             return true;
         try {
             return valueMatcher.matches(field.get(item));
-        } catch (IllegalArgumentException e) {
-            return false;
         } catch (IllegalAccessException e) {
             return false;
         }
@@ -42,10 +41,10 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
 
     private static Field findField(Class<?> clazz, String name) {
         Class<?> searchType = clazz;
-        while (!Object.class.equals(searchType) && searchType != null) {
+        while (!Object.class.equals(searchType)) {
             Field[] fields = searchType.getDeclaredFields();
             for (Field field : fields) {
-                if (name == null || name.equals(field.getName())) {
+                if (StringUtils.equals(name,field.getName())) {
                     return field;
                 }
             }
