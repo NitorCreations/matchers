@@ -8,5 +8,6 @@
     <factory class="com.nitorcreations.matchers.ReflectionEqualsMatcher" />
     <factory class="com.nitorcreations.matchers.SerializableMatcher"/>
     <factory class="com.nitorcreations.matchers.StringMatchers"/>
+    <factory class="com.nitorcreations.matchers.FieldMatcher"/>
 
 </matchers>
