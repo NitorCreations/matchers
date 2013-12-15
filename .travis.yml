@@ -4,5 +4,9 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
+matrix:
+  allow_failures:
+    - jdk: oraclejdk8
+
 after_success:
   - mvn test jacoco:report coveralls:jacoco
