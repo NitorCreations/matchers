@@ -4,11 +4,11 @@ import java.lang.reflect.Field;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Description;
-import org.hamcrest.DiagnosingMatcher;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeDiagnosingMatcher;
 
-public final class FieldMatcher extends DiagnosingMatcher<Object> {
+public final class FieldMatcher<T> extends TypeSafeDiagnosingMatcher<T> {
     private final String fieldName;
     private final Matcher<?> valueMatcher;
 
@@ -26,7 +26,7 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
     }
 
     @Override
-    protected boolean matches(Object item, Description mismatchDescription) {
+    protected boolean matchesSafely(T item, Description mismatchDescription) {
         Field field = findField(item.getClass(), fieldName);
         if (field == null)
             return false;
@@ -61,8 +61,8 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
      * <pre>assertThat(myBean, hasField("foo")</pre>
      */
     @Factory
-    public static FieldMatcher hasField(String fieldName) {
-        return new FieldMatcher(fieldName, null);
+    public static <T> FieldMatcher<T> hasField(String fieldName) {
+        return new FieldMatcher<T>(fieldName, null);
     }
 
     /**
@@ -73,7 +73,7 @@ public final class FieldMatcher extends DiagnosingMatcher<Object> {
      * <pre>assertThat(myBean, hasField("foo", equalTo("bar"))</pre>
      */
     @Factory
-    public static FieldMatcher hasField(String fieldName, Matcher<?> withValue) {
-        return new FieldMatcher(fieldName, withValue);
+    public static <T> FieldMatcher<T> hasField(String fieldName, Matcher<?> withValue) {
+        return new FieldMatcher<T>(fieldName, withValue);
     }
 }
