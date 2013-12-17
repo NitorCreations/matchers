@@ -43,7 +43,7 @@ Available in Maven central repository. Add this to your `pom.xml`
 <dependency>
   <groupId>com.nitorcreations</groupId>
   <artifactId>matchers</artifactId>
-  <version>1.2</version>
+  <version>1.3</version>
 </dependency>
 ```
 
