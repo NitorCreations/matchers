@@ -33,9 +33,10 @@ public final class FieldMatcher<T> extends TypeSafeDiagnosingMatcher<T> {
         if (valueMatcher == null)
             return true;
         try {
+            field.setAccessible(true);
             return valueMatcher.matches(field.get(item));
         } catch (IllegalAccessException e) {
-            return false;
+            throw new RuntimeException("Failed to access field " + fieldName + " in " + item.getClass().getName(), e);
         }
     }
 
